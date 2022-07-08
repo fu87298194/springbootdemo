@@ -2,7 +2,7 @@ package com.huhu.springbootdemo.web;
 
 
 import com.github.pagehelper.PageInfo;
-import com.huhu.springbootdemo.model.User;
+import com.huhu.springbootdemo.model.UserModel;
 import com.huhu.springbootdemo.mapper.UserMapper;
 import com.huhu.springbootdemo.service.UserService;
 import com.huhu.springbootdemo.vo.UserVo;
@@ -23,23 +23,23 @@ public class UserController {
     UserService userService;
 
     @GetMapping(value="/getUser")
-    public List<User> getUser(){
+    public List<UserModel> getUser(){
 
-        List<User>  users = userMapper.getAll();
+        List<UserModel>  users = userMapper.getAll();
 
         return users;
     }
 
     @GetMapping(value="/getUserPage")
-    public PageInfo<User> getUserPage(@Validated UserVo userVo){
-        List<User>  users = userService.getAll(userVo);
-        return  new PageInfo<User>(users);
+    public PageInfo<UserModel> getUserPage(@Validated UserVo userVo){
+        List<UserModel>  users = userService.getAll(userVo);
+        return  new PageInfo<UserModel>(users);
     }
 
     @GetMapping(value="/getUserPageBySelf")
-    public PageInfo<User> getUserPageBySelf(@Validated UserVo userVo){
-        List<User>  users = userService.getAll(userVo);
-        PageInfo<User> pgageInfo = new PageInfo<User>(users);
+    public PageInfo<UserModel> getUserPageBySelf(@Validated UserVo userVo){
+        List<UserModel>  users = userService.getAll(userVo);
+        PageInfo<UserModel> pgageInfo = new PageInfo<UserModel>(users);
         return null;
     }
 

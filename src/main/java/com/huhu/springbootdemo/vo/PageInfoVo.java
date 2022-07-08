@@ -1,9 +1,8 @@
-package com.huhu.springbootdemo.model;
+package com.huhu.springbootdemo.vo;
 
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Positive;
 
-public class BaseEntity {
+public class PageInfoVo {
 
     private Integer id;
 

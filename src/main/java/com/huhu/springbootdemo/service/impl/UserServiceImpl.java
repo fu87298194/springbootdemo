@@ -2,7 +2,7 @@ package com.huhu.springbootdemo.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.huhu.springbootdemo.mapper.UserMapper;
-import com.huhu.springbootdemo.model.User;
+import com.huhu.springbootdemo.model.UserModel;
 import com.huhu.springbootdemo.service.UserService;
 import com.huhu.springbootdemo.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ public class UserServiceImpl implements UserService {
     UserMapper userMapper;
 
     @Override
-    public List<User> getAll(UserVo userVo) {
+    public List<UserModel> getAll(UserVo userVo) {
 
         PageHelper.startPage(userVo.getPage(),userVo.getRows());
         return userMapper.getAll();

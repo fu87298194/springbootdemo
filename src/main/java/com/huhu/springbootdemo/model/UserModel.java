@@ -4,7 +4,7 @@ import com.huhu.springbootdemo.enums.UserSexEnum;
 
 import java.io.Serializable;
 
-public class User implements Serializable {
+public class UserModel implements Serializable {
     private String id;
     private String userName;
     private String passWord;
