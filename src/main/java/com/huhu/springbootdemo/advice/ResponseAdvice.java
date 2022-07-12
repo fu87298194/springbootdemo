@@ -15,9 +15,11 @@ import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.servlet.NoHandlerFoundException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 @Slf4j
@@ -65,6 +67,13 @@ public class ResponseAdvice implements ResponseBodyAdvice<Object> {
     }
 
 
+    @ExceptionHandler(NoHandlerFoundException.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public ResultData<String> handleException(NoHandlerFoundException e){
+        log.error(e.getMessage(),e);
+        return ResultData.fail(ReturnCode.RC404.getCode(),"不支持" + e.getRequestURL()+"请求");
+    }
+
     /**
      * 默认全局异常处理。
      * @param e the e
@@ -74,8 +83,9 @@ public class ResponseAdvice implements ResponseBodyAdvice<Object> {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ResultData<String> exception(Exception e) {
         //log.error("全局异常信息 ex={}", e.getMessage(), e);
-
         return ResultData.fail(ReturnCode.RC500.getCode(),e.getMessage());
     }
+
+
 
 }
