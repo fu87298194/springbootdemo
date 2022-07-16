@@ -1,15 +1,18 @@
 package com.huhu.springbootdemo.vo;
 
-import javax.validation.constraints.Positive;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Pattern;
 
 public class PageInfoVo {
 
     private Integer id;
 
-    @Positive(message = "page 只能为正整数")
+    @DecimalMin(value = "1",message = "page 只能为正整数")
+    //@Pattern(regexp="^[0-9]*$",message = "page 必须为正整数")
     private Integer page = 1;
 
-    @Positive(message = "rows 只能为正整数")
+    @DecimalMin(value = "1",message = "rows 只能为正整数")
+    //@Pattern(regexp="^[0-9]*$",message = "rows 必须为正整数")
     private Integer rows = 10;
 
     public Integer getId() {

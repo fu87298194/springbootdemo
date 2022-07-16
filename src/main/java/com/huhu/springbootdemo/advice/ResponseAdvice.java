@@ -61,7 +61,7 @@ public class ResponseAdvice implements ResponseBodyAdvice<Object> {
         FieldError fieldError = e.getFieldError();
         String message = "[" + e.getAllErrors().get(0).getDefaultMessage()+"]";
 
-        return ResultData.fail(ReturnCode.RC500.getCode(),message);
+        return ResultData.fail(ReturnCode.RC400.getCode(),message);
     }
 
 
@@ -73,7 +73,7 @@ public class ResponseAdvice implements ResponseBodyAdvice<Object> {
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ResultData<String> exception(Exception e) {
-        //log.error("全局异常信息 ex={}", e.getMessage(), e);
+        log.error("全局异常信息 ex={}", e.getMessage(), e);
 
         return ResultData.fail(ReturnCode.RC500.getCode(),e.getMessage());
     }
