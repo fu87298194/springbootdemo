@@ -63,7 +63,7 @@ public class ResponseAdvice implements ResponseBodyAdvice<Object> {
         FieldError fieldError = e.getFieldError();
         String message = "[" + e.getAllErrors().get(0).getDefaultMessage()+"]";
 
-        return ResultData.fail(ReturnCode.RC500.getCode(),message);
+        return ResultData.fail(ReturnCode.RC205.getCode(),message);
     }
 
 
