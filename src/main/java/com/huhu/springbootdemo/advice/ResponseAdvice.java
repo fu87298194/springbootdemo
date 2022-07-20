@@ -15,7 +15,6 @@ import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -63,7 +62,7 @@ public class ResponseAdvice implements ResponseBodyAdvice<Object> {
         FieldError fieldError = e.getFieldError();
         String message = "[" + e.getAllErrors().get(0).getDefaultMessage()+"]";
 
-        return ResultData.fail(ReturnCode.RC500.getCode(),message);
+        return ResultData.fail(ReturnCode.RC205.getCode(),message);
     }
 
 
