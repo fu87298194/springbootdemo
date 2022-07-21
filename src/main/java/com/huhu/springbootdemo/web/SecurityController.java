@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class SecurityController {
 
-    @RequestMapping("/test")
+    @RequestMapping("/")
     public String index(){
         System.out.println("here");
         return "index";
