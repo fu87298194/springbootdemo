@@ -69,7 +69,6 @@ public class ResponseAdvice implements ResponseBodyAdvice<Object> {
     @ExceptionHandler(NoHandlerFoundException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ResultData<String> handleException(NoHandlerFoundException e){
-        log.error(e.getMessage(),e);
         return ResultData.fail(ReturnCode.RC404.getCode(),"不支持" + e.getRequestURL()+"请求");
     }
 
