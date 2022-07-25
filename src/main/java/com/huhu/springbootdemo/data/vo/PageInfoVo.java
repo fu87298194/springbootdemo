@@ -1,4 +1,4 @@
-package com.huhu.springbootdemo.vo;
+package com.huhu.springbootdemo.data.vo;
 
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Pattern;

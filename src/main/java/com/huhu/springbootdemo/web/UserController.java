@@ -2,10 +2,10 @@ package com.huhu.springbootdemo.web;
 
 
 import com.github.pagehelper.PageInfo;
-import com.huhu.springbootdemo.model.UserModel;
+import com.huhu.springbootdemo.data.model.UserModel;
 import com.huhu.springbootdemo.mapper.UserMapper;
 import com.huhu.springbootdemo.service.UserService;
-import com.huhu.springbootdemo.vo.UserVo;
+import com.huhu.springbootdemo.data.form.UserForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,14 +32,14 @@ public class UserController {
     }
 
     @GetMapping(value="/getUserPage")
-    public PageInfo<UserModel> getUserPage(@Validated UserVo userVo){
-        List<UserModel>  users = userService.getAll(userVo);
+    public PageInfo<UserModel> getUserPage(@Validated UserForm userForm){
+        List<UserModel>  users = userService.getAll(userForm);
         return  new PageInfo<UserModel>(users);
     }
 
     @GetMapping(value="/getUserPageBySelf")
-    public PageInfo<UserModel> getUserPageBySelf(@Validated UserVo userVo){
-        List<UserModel>  users = userService.getAll(userVo);
+    public PageInfo<UserModel> getUserPageBySelf(@Validated UserForm userForm){
+        List<UserModel>  users = userService.getAll(userForm);
         PageInfo<UserModel> pgageInfo = new PageInfo<UserModel>(users);
         return null;
     }

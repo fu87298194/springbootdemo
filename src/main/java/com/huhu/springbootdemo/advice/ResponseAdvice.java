@@ -1,8 +1,8 @@
 package com.huhu.springbootdemo.advice;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.huhu.springbootdemo.enums.ReturnCode;
-import com.huhu.springbootdemo.model.ResultData;
+import com.huhu.springbootdemo.data.enums.ReturnCode;
+import com.huhu.springbootdemo.data.model.ResultData;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
